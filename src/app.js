@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path')
+const cors = require('cors')
 
 const routes = require('./routes')   
 
@@ -16,7 +18,12 @@ class App {
     }
 
     middlewares(){
+        this.server.use(cors());
         this.server.use(express.json())
+        this.server.use(
+            '/products',
+            express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+        );
     }
 
     routes(){

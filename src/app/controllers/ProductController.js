@@ -2,10 +2,22 @@ const Product = require('../models/Product')
 
 module.exports = {
     async store(req, res){
-        const { brand, color, size, price } = req.body
+        const { filename } = req.file
+        const {  
+            name, 
+            brand,
+            color, 
+            size, 
+            price 
+        } = req.body
         
         const product = await Product.create({
-            brand, color, size, price
+            image: filename, 
+            name, 
+            brand, 
+            color, 
+            size, 
+            price
         })
 
         return res.json(product)
