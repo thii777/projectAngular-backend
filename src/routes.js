@@ -9,9 +9,9 @@ const upload = multer(multerConfig);
 
 routes.post('/products', upload.single('image'), productController.store)
 routes.get('/products', productController.show)
-routes.get('/products/:projectId', productController.index)
-routes.put('/products/:projectId', upload.single('image'), productController.update)
-routes.delete('/products/:projectId', productController.delete)
+routes.get('/products/:product_id', productController.index)
+routes.put('/products/:product_id', upload.single('image'), productController.update)
+routes.delete('/products/:product_id', productController.delete)
 
 module.exports = routes
 

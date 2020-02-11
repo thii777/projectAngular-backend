@@ -30,19 +30,17 @@ module.exports = {
     },
 
     async index(req, res){
-        const product = await Product.findById(req.params.projectId)
+        const product = await Product.findById(req.params.product_id)
         return res.json(product);
     },
 
     async update(req, res){
-        const data = req.body
-        const product = await Product.findByIdAndUpdate(req.params.projectId, data, {new: true}) 
-        
+        const product = await Product.findByIdAndUpdate(req.params.product_id, req.body, {new: true}) 
         return res.json(product)   
     },
 
     async delete(req, res){        
-        await Product.findByIdAndDelete(req.params.projectId)
+        await Product.findByIdAndDelete(req.params.product_id)
         return res.json({ message: 'delete success'})
     }
 }
