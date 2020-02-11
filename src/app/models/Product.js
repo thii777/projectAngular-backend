@@ -30,8 +30,9 @@ const ProductsSchema = new mongoose.Schema({
     }
 });
 
-ProductsSchema.virtual('image_url').get(function(){
+ProductsSchema.virtual('image_url').get(() => {
     return `http://192.168.0.13:3000/files/${this.image}` 
+
 })
 
 module.exports = mongoose.model('Product', ProductsSchema);
