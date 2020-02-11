@@ -25,6 +25,7 @@ module.exports = {
 
     async show(req, res){
         const { id } = req.params
+
         const product = await Product.find({id})
         return res.json(product);
     },

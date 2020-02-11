@@ -1,1 +1,9 @@
-node_modules
+# compiled output
+/node_modules
+
+# IDEs and editors
+*.launch
+.settings/
+
+# IDE - VSCode
+.vscode
