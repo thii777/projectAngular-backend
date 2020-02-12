@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const ProductsSchema = new mongoose.Schema({
     image: {
         type: String,
-        required: true,
     },
     name: {
         type: String,
@@ -27,12 +26,14 @@ const ProductsSchema = new mongoose.Schema({
 },{
     toJSON: {
         virtuals: true,
+    },
+    toObject: { 
+        virtuals: true 
     }
 });
 
-ProductsSchema.virtual('image_url').get(() => {
-    return `http://192.168.0.13:3000/files/${this.image}` 
-
+ProductsSchema.virtual('image_url').get(function() {
+    return `http://172.26.0.54:3000/files/${this.image}` 
 })
 
 module.exports = mongoose.model('Product', ProductsSchema);

@@ -1,5 +1,4 @@
 const Product = require('../models/Product');
-const fs = require('fs');
 
 module.exports = {
     async store(req, res) {
