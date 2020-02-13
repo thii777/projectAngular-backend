@@ -13,7 +13,7 @@ module.exports = {
 
         const product = await Product.create({
             image: filename,
-            name,
+            name, 
             brand,
             color,
             size,
@@ -25,7 +25,7 @@ module.exports = {
 
     async show(req, res) {
         const { id } = req.params
-        let limit = req.query && req.query.limit ? req.query.limit : 10;
+        let limit = req.query && req.query.limit ? req.query.limit : 12;
         let skip = req.query && req.query.skip ? req.query.skip : 0;
 
         const product = await Product.find({ id }).skip(Number(skip)).limit(Number(limit))
